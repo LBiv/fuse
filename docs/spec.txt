@@ -1,0 +1,90 @@
+Request format:
+
+slave id:
+1byte: 0x00
+
+job id:
+4byte big-endian format unique job id.
+
+total length:
+4byte big-endian length of task-spec, not including 
+
+task id:
+4byte big-endian taskid corresponding to the index of the desired function in the function table (first 8 are specified by the spec.)
+
+task parameters:
+each parameter:
+param type:
+1byte param-type
+
+persistent param: (to be stored by slave)
+4byte big-endian unique non-zero param id.
+4byte big-endian param byte-length (n)
+nbytes parameter
+
+temporary param: (one time use)
+4byte big-endian param byte-length (n)
+nbytes parameter
+
+local param: (currently stored by slave)
+4byte big-endian unique nonzero param id.
+
+returned param:
+4byte big-endian unique nonzero param id.
+
+returned and stored param:
+4byte big-endian unique nonzero param id.
+
+
+Response format:
+
+master id:
+1byte: 0xFF
+
+job id:
+4byte big-endian format unique job id.
+
+total length:
+4byte big-endian length of task-spec
+
+response code:
+4byte big-endian response code.
+
+task results:
+each result:
+result type:
+
+4byte big-endian unique nonzero param id.
+4byte big-endian param byte-length (n)
+nbytes parameter
+---------------------------------------------------------------------------------------------------------
+Slave id:
+0x00
+---------------------------------------------------------------------------------------------------------
+Master id:
+0xFF
+---------------------------------------------------------------------------------------------------------
+Reserved Jobs:
+None
+---------------------------------------------------------------------------------------------------------
+Reserved tasks:
+0x00000000: (no params) Dump job table.
+0x00000001: (1 param: job id) Dump specific job description
+0x00000010: (no params) Dump response table.
+0x00000011: (1 param: response id) Dump specific response description.
+0x00000100: (no params) return concatenated list of all active/allocated parameters.
+0x00000101: (1 param: param id) Return specific parameter.
+0x00000110: (no params) de-activate/free all currently active parameters.
+0x00000111: (1 param: param id) de-activate/free specific parameter.
+---------------------------------------------------------------------------------------------------------
+Reserved Parameters:
+0x00000000: Unallowed
+---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
