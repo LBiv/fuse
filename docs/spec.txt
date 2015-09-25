@@ -68,7 +68,7 @@ Reserved Jobs:
 None
 ---------------------------------------------------------------------------------------------------------
 Reserved tasks:
-0x00000000: (no params) Dump job table.
+0x00000000: (no params) Dump task table.
 0x00000001: (1 param: job id) Dump specific job description
 0x00000010: (no params) Dump response table.
 0x00000011: (1 param: response id) Dump specific response description.
