@@ -3,6 +3,7 @@ Request format:
 slave id:
 1byte: 0x00
 
+each job:
 job id:
 4byte big-endian format unique job id.
 
@@ -41,6 +42,7 @@ Response format:
 master id:
 1byte: 0xFF
 
+each job:
 job id:
 4byte big-endian format unique job id.
 

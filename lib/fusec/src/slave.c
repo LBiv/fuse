@@ -1,12 +1,6 @@
-typedef int (*slave_callback_t)(unsigned char **params);
+#include "common.h"
 
-typedef struct param {
-    uint32_t param_id;
-    unsigned char param_type
-    size_t size;
-    unsigned char *val;
-    struct param *next;
-} slave_parameter_t;
+typedef int (*slave_callback_t)(unsigned char **params);
 
 typedef struct job {
     uint32_t job_id;
