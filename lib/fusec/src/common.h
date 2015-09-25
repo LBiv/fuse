@@ -2,6 +2,4 @@
 #define FUSEC_COMMON_H
 
 
-
-
 #endif

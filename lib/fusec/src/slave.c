@@ -2,18 +2,26 @@
 
 typedef int (*slave_callback_t)(unsigned char **params);
 
-typedef struct job {
+typedef struct s_param {
+    uint32_t param_id;
+    unsigned char param_type
+    size_t size;
+    unsigned char *val;
+    struct s_param *next;
+} slave_parameter_t;
+
+typedef struct s_job {
     uint32_t job_id;
     uint32_t task_id;
     slave_parameter_t **params;
-    struct job *next;
+    struct s_job *next;
 } slave_job_t;
 
-typedef struct result {
+typedef struct s_result {
     uint32_t job_id;
     uint32_t response_code;
     slave_parameter_t **params;
-    struct result *next;
+    struct s_result *next;
 } slave_result_t
 
 typedef struct {
